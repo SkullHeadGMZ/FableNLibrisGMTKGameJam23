@@ -69,7 +69,7 @@ public class BattleManager : MonoBehaviour
         battleButtons.SetActive(false);
         battleTextUI.SetActive(true);
         phase = battlePhase.battlePhase;
-        int i = Random.Range(0, 2);
+        int i = Random.Range(0, 3);
         print (i);
         if (i == 0)
         {
@@ -131,6 +131,15 @@ public class BattleManager : MonoBehaviour
             oppMoveText = "You reversed type effectivenss!";
         }
         battleTxt.GetComponent<TextMesh>().text = playerMoveText + oppMoveText;
+
+        //figure out how the battle goes
+        if(playerMove == moveType.attack)
+        {
+            if(oppMove == moveType.attack)
+            {
+
+            }
+        }
 
         if ((player.hp <=0) || (opponent.hp <= 0)) {
             EndBattle();

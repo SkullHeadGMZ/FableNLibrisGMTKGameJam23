@@ -383,7 +383,10 @@ MonoBehaviour:
   statButt: {fileID: 1100208189}
   battleTxt: {fileID: 1098378340}
   player: {fileID: 0}
+  playerMove: 0
   opponent: {fileID: 0}
+  oppMove: 0
+  phase: 0
 --- !u!1 &230685425
 GameObject:
   m_ObjectHideFlags: 0
