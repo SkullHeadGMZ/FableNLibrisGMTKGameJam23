@@ -37,6 +37,7 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle ()
     {
+        phase = battlePhase.startPhase;
         battleCam.gameObject.SetActive(true);
         print("battlecam on");
         mainCam.gameObject.SetActive(false);
@@ -44,13 +45,19 @@ public class BattleManager : MonoBehaviour
         battleTextUI.SetActive(true);
         battleButtons.SetActive(false);
         battleTxt.GetComponent<TextMesh>().text = "A TRAINER ambushued you! They sent out a " + opponent.Type.ToString() + "monster!";
-        phase = battlePhase.startPhase;
+        player.extraDmg = 0;
+        player.defTurns = 0;
+        opponent.extraDmg = 0;
+        opponent.defTurns = 0;
+
 
     }
 
     public void EndBattle()
     {
         phase = battlePhase.endPhase;
+        player.extraDmg = 0;
+        player.defTurns = 0;
         if(player.hp <= 0)
         {
             print("player loses");
@@ -133,11 +140,119 @@ public class BattleManager : MonoBehaviour
         battleTxt.GetComponent<TextMesh>().text = playerMoveText + oppMoveText;
 
         //figure out how the battle goes
-        if(playerMove == moveType.attack)
+       if(playerMove == moveType.attack)
         {
             if(oppMove == moveType.attack)
             {
+                DamageCalc(player, opponent);
+                DamageCalc(opponent, player);
+            }
+            else if(oppMove == moveType.defense)
+            {
+                opponent.defTurns += 2;
+                DamageCalc(player, opponent);
+            }
+            else if(oppMove == moveType.status)
+            {
+                if(opponent.Type == MonsterType.Good)
+                {
+                    opponent.hp += 10;
+                    if(opponent.hp > opponent.maxHP) {
+                        opponent.hp = opponent.maxHP;
+                    }
+                    DamageCalc(player, opponent);
+                }
+                else if(opponent.Type == MonsterType.Bad) {
+                    opponent.extraDmg += 1;
+                    DamageCalc(player, opponent);
+                }
+                else if (opponent.Type == MonsterType.Tricky)
+                {
+                    typesInversed = !typesInversed;
+                    DamageCalc(player, opponent);
+                }
+            }
+        }
+       else if(playerMove == moveType.defense)
+        {
+            if(oppMove == moveType.attack)
+            {
+                player.defTurns += 2;
+                DamageCalc(opponent, player);
+            }
+            else if (oppMove == moveType.defense)
+            {
+                player.defTurns += 2;
+                opponent.defTurns += 2;
+            }
+            else if (oppMove == moveType.status)
+            {
+                if (opponent.Type == MonsterType.Good)
+                {
+                    opponent.hp += 10;
+                    if (opponent.hp > opponent.maxHP)
+                    {
+                        opponent.hp = opponent.maxHP;
+                    }
+                    player.defTurns += 2;
+                }
+                else if (opponent.Type == MonsterType.Bad)
+                {
+                    opponent.extraDmg += 1;
+                    player.defTurns += 2;
+                }
+                else if (opponent.Type == MonsterType.Tricky)
+                {
+                    typesInversed = !typesInversed;
+                    player.defTurns += 2;
+                }
+            }
+        }
+       else if(playerMove == moveType.status)
+        {
+            if(player.Type == MonsterType.Good)
+            {
+                player.hp += 10;
+                if(player.hp > player.maxHP)
+                {
+                    player.hp = player.maxHP;
+                }
+            }
+            else if (player.Type == MonsterType.Bad)
+            {
+                player.extraDmg += 1;
+            }
+            else if (player.Type == MonsterType.Tricky)
+            {
+                typesInversed = !typesInversed;
+            }
 
+            if(oppMove == moveType.attack)
+            {
+                DamageCalc(opponent, player);
+            }
+            else if (oppMove == moveType.defense)
+            {
+                opponent.defTurns += 2;
+            }
+            else if (oppMove == moveType.status)
+            {
+                if (opponent.Type == MonsterType.Good)
+                {
+                    opponent.hp += 10;
+                    if (opponent.hp > opponent.maxHP)
+                    {
+                        opponent.hp = opponent.maxHP;
+                    }
+                }
+                else if (opponent.Type == MonsterType.Bad)
+                {
+                    opponent.extraDmg += 1;
+                }
+                else if (opponent.Type == MonsterType.Tricky)
+                {
+                    typesInversed = !typesInversed;
+                }
             }
         }
 
@@ -155,6 +270,53 @@ public class BattleManager : MonoBehaviour
         phase = battlePhase.choosePhase;
         battleTextUI.gameObject.SetActive(false);
         battleButtons.gameObject.SetActive(true);
+    }
+
+    public void DamageCalc(Monster monA, Monster monB)
+    {
+        int damage = monA.attack;
+        if (typesInversed == true)
+        {
+            if (monA.reverseEffective == monB.Type)
+            {
+                {
+                    damage = Mathf.FloorToInt(monA.attack + monA.extraDmg + (monA.attack + monA.extraDmg / 2));
+                }
+            }
+            else
+            {
+                damage = monA.attack + monA.extraDmg;
+            }
+        }
+        else
+        {
+            if (monA.superEfective == monB.Type) {
+                {
+                    damage = Mathf.FloorToInt(monA.attack + monA.extraDmg + (monA.attack + monA.extraDmg / 2));
+                }
+            }
+            else
+            {
+                damage = monA.attack + monA.extraDmg;
+            }
+        }
+        if (monB.defTurns > 0)
+        {
+            damage = damage / 2;
+        }
+        monB.hp -= damage;
+        if(monB.hp < 0)
+        {
+            monB.hp = 0;
+        }
+        if(monA.defTurns > 0)
+        {
+            monA.defTurns -= 1;
+        }
+        if(monB.defTurns > 0)
+        {
+            monB.defTurns -= 1;
+        }
     }
 
 

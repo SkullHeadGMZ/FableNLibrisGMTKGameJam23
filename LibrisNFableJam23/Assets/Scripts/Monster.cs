@@ -6,12 +6,16 @@ public class Monster : MonoBehaviour
 {
     public MonsterType Type;
     public int attack;
+    public int maxHP;
     public int hp;
     public MonsterType superEfective;
     public MonsterType reverseEffective;
+    public int defTurns = 0;
+    public int extraDmg = 0;
 
     private void Start()
     {
+        hp = maxHP;
         if(Type == MonsterType.Good)
         {
             superEfective = MonsterType.Bad;
