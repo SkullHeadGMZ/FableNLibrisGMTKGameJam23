@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     //lets object reference itself
     public GameObject player;
+    //chooses type
+    public MonsterType type;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,4 +39,11 @@ public class PlayerMovement : MonoBehaviour
             player.transform.position = new Vector2(player.transform.position.x + speed, player.transform.position.y);
         }
     }
+}
+
+public enum MonsterType
+{
+   Good,
+   Bad,
+   Tricky
 }
