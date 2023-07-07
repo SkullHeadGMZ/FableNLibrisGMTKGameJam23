@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8581684790966467580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6547585205636860302}
+        m_TargetAssemblyTypeName: DefendButton, Assembly-CSharp
+        m_MethodName: Defend
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6547585205636860302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,7 +756,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8581684792093720254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 604776030524401081}
+        m_TargetAssemblyTypeName: AttackButton, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &604776030524401081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,7 +1044,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8581684792140179512}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4697220418184537830}
+        m_TargetAssemblyTypeName: StatusButton, Assembly-CSharp
+        m_MethodName: Status
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4697220418184537830
 MonoBehaviour:
   m_ObjectHideFlags: 0

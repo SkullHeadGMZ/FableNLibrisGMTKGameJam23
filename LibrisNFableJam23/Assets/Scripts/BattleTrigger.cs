@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleTrigger : MonoBehaviour
 {
+    public BattleManager battleMan;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,7 @@ public class BattleTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         print("You have entered a battle");
+        battleMan.opponent = gameObject.GetComponent<Monster>();
+        battleMan.StartBattle();
     }
 }

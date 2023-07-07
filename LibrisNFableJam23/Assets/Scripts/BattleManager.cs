@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BattleManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BattleManager : MonoBehaviour
     public GameObject attackButt;
     public GameObject defButt;
     public GameObject statButt;
-    public GameObject battleTxt;
+    public TextMeshPro battleTxt;
     public Monster player;
     public moveType playerMove;
     public Monster opponent;
@@ -44,7 +45,7 @@ public class BattleManager : MonoBehaviour
         print("maincam off");
         battleTextUI.SetActive(true);
         battleButtons.SetActive(false);
-        battleTxt.GetComponent<TextMesh>().text = "A TRAINER ambushued you! They sent out a " + opponent.Type.ToString() + "monster!";
+        battleTxt.text = "A TRAINER ambushued you! They sent out a " + opponent.Type.ToString() + "monster!";
         player.extraDmg = 0;
         player.defTurns = 0;
         opponent.extraDmg = 0;
@@ -137,7 +138,7 @@ public class BattleManager : MonoBehaviour
         {
             oppMoveText = "You reversed type effectivenss!";
         }
-        battleTxt.GetComponent<TextMesh>().text = playerMoveText + oppMoveText;
+        battleTxt.text = playerMoveText + oppMoveText;
 
         //figure out how the battle goes
        if(playerMove == moveType.attack)
