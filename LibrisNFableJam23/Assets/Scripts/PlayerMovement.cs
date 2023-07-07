@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     //lets object reference itself
     public GameObject player;
-    //chooses type
-    public MonsterType type;
     // Start is called before the first frame update
     void Start()
     {
