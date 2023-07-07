@@ -33,5 +33,6 @@ public class AttackButton : MonoBehaviour
     public void Attack()
     {
         battleMan.playerMove = moveType.attack;
+        battleMan.Battle();
     }
 }
