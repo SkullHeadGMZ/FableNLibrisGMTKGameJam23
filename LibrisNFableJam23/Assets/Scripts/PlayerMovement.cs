@@ -8,34 +8,71 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     //lets object reference itself
     public GameObject player;
+    int newX;
+    int newY;
+    public Rigidbody2D rb;
+    Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
-        
+        /*newX = Mathf.FloorToInt(player.transform.position.x);
+        newY = newY = Mathf.FloorToInt(player.transform.position.y);*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+    }
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        /*
         //go up
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
-            player.transform.position = new Vector2 (player.transform.position.x, player.transform.position.y + speed);
+            newY += 1;
         }
 
         //go down
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
-            player.transform.position = new Vector2(player.transform.position.x, player.transform.position.y - speed);
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)){
+            newY -= 1;
         }
 
         //go left
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow)){
-            player.transform.position = new Vector2(player.transform.position.x - speed, player.transform.position.y);
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)){
+            newX -= 1;
         }
 
         //go right
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.LeftArrow)){
-            player.transform.position = new Vector2(player.transform.position.x + speed, player.transform.position.y);
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)){
+            newX += 1;
         }
+        if(player.transform.position.x > newX)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0));
+        }
+        else if(transform.position.x < newX)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0));
+        }
+        else if(Mathf.Abs(transform.position.x - newX) <= .01)
+        {
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, (player.GetComponent<Rigidbody2D>().velocity.y));
+        }
+        if (player.transform.position.y > newY)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -speed));
+        }
+        else if (transform.position.y < newY)
+        {
+            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, speed));
+        }
+        else if (Mathf.Abs(transform.position.y - newY) <= .01)
+        {
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2((player.GetComponent<Rigidbody2D>().velocity.x), 0);
+        }
+        */
     }
 }
 
