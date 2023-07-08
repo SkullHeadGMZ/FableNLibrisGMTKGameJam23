@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AttackButton : MonoBehaviour
 {
@@ -8,19 +9,23 @@ public class AttackButton : MonoBehaviour
     public BattleManager battleMan;
     public string[] atkNames;
     // Start is called before the first frame update
-    void Start()
+    void Start() { 
+
+    }
+    void Awake()
     {
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
         if(battleMan.player.Type == MonsterType.Good)
         {
-            atkButt.GetComponent<TextMesh>().text = atkNames[0];
+            atkButt.GetComponent<TextMeshProUGUI>().text = atkNames[0];
         }
         else if (battleMan.player.Type == MonsterType.Bad)
         {
-            atkButt.GetComponent<TextMesh>().text = atkNames[1];
+            atkButt.GetComponent<TextMeshProUGUI>().text = atkNames[1];
         }
         else if (battleMan.player.Type == MonsterType.Tricky)
         {
-            atkButt.GetComponent<TextMesh>().text = atkNames[2];
+            atkButt.GetComponent<TextMeshProUGUI>().text = atkNames[2];
         }
     }
 
