@@ -21,29 +21,29 @@ public class BattleTrigger : MonoBehaviour
     {
         if (looking == LookDirection.Up)
         {
-            hit = Physics2D.Raycast(transform.position, transform.up, Mathf.Infinity);
-            Debug.DrawRay(transform.position, transform.up * Mathf.Infinity, Color.black, 5);
+            hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
+            Debug.DrawRay(transform.position, Vector2.up * Mathf.Infinity, Color.black, 100);
             print(gameObject.name + " hit " + hit.collider.name);
         }
         else if (looking == LookDirection.Right)
         {
-            hit = Physics2D.Raycast(transform.position, transform.right, Mathf.Infinity);
-            Debug.DrawRay(transform.position, transform.right * Mathf.Infinity, Color.black, 5);
+            hit = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity);
+            Debug.DrawRay(transform.position, Vector2.right * Mathf.Infinity, Color.black, 100);
             print(gameObject.name + " hit " + hit.collider.name);
         }
         else if (looking == LookDirection.Left)
         {
-            hit = Physics2D.Raycast(transform.position, -transform.right, Mathf.Infinity);
-            Debug.DrawRay(transform.position, -transform.right * Mathf.Infinity, Color.black, 5);
+            hit = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity);
+            Debug.DrawRay(transform.position, Vector2.left * Mathf.Infinity, Color.black, 100);
             print(gameObject.name + " hit " + hit.collider.name);
         }
         else if (looking == LookDirection.Down)
         {
-            hit = Physics2D.Raycast(transform.position, -transform.up, Mathf.Infinity);
-            Debug.DrawRay(transform.position, -transform.up * Mathf.Infinity, Color.black, 5);
+            hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity);
+            Debug.DrawRay(transform.position, Vector2.down * Mathf.Infinity, Color.black, 100);
             print(gameObject.name + " hit " + hit.collider.name);
         }
-        if (hit.collider.tag == "Player")
+        if (hit.collider.tag == "Player" && battleMan.inBattle == false)
         {
             PlayerFound();
         }
@@ -82,6 +82,7 @@ public class BattleTrigger : MonoBehaviour
             print("You have entered a battle");
             battleMan.opponent = gameObject.GetComponent<Monster>();
             PlayerMovement.instance.canMove = false;
+            battleMan.inBattle = true;
             battleMan.StartBattle();
     }
 }
