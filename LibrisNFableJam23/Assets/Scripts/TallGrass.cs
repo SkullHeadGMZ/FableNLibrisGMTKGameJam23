@@ -39,4 +39,19 @@ public class TallGrass : MonoBehaviour
             print("I'm glad you're gone");
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            if(collision.gameObject.layer != 2)
+            {
+                collision.gameObject.layer = 2;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
 }
