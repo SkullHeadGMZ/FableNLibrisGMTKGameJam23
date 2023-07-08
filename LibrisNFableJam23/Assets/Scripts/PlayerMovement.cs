@@ -45,6 +45,14 @@ public class PlayerMovement : MonoBehaviour
         {
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
+            if (Mathf.Abs(movement.y) > Mathf.Abs(movement.x))
+            {
+                movement.x = 0;
+            }
+            else
+            {
+                movement.y = 0;
+            }
         }
         else
         {

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - BattleManager
+  - Trainer
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,7 @@ public class BattleManager : MonoBehaviour
     public GameObject oppSprite;
     public Image playerHpBar;
     public Image oppHpBar;
+    public bool inBattle;
     //keeps track of whetehr tricky is active
     bool typesInversed;
     // Start is called before the first frame update
@@ -113,6 +114,7 @@ public class BattleManager : MonoBehaviour
             playerSprite.GetComponent<SpriteRenderer>().sprite = null;
             oppSprite.GetComponent<SpriteRenderer>().sprite = null;
             opponent.gameObject.SetActive(false);
+            inBattle = false;
             player.gameObject.GetComponent<PlayerMovement>().canMove = true;
         }
     }

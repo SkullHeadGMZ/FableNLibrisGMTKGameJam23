@@ -1472,11 +1472,11 @@ MonoBehaviour:
   battleMan: {fileID: 8581684790989366391}
   desc: {fileID: 9009544568330527708}
   descriptions:
-  - Elefun wraps its ears around itself, reducing all damage it takes by 50% for
-    2 turns.
+  - Flashyderm wraps its ears around itself, reducing all damage it takes by 50%
+    for 2 turns.
   - Kimodude digs its feet into the ground and braces for impact, reducing all damage
     it takes by 50% for 2 turns.
-  - Mixenmash collects nearby garbage and creates a shield, reducing all damage it
+  - Mixenmag collects nearby garbage and creates a shield, reducing all damage it
     takes by 50% for 2 turns.
   Names:
   - Sph-ear Shield
@@ -2043,9 +2043,9 @@ MonoBehaviour:
   - Flip-Flap
   desc: {fileID: 6346205867435859464}
   descriptions:
-  - Elefun lets out a blast of music from its trunk hurting your opponent.
+  - Flashyderm lets out a blast of music from its trunk hurting your opponent.
   - Kimodude breathes out spirits from the underworld and ignites them to deal damage.
-  - Mixenmash flies upside down towards the opponent, then quickly flips back over,
+  - Mixenmag flies upside down towards the opponent, then quickly flips back over,
     hitting them in the process.
 --- !u!1 &8581684792125758492
 GameObject:
@@ -2338,10 +2338,10 @@ MonoBehaviour:
   - Oopsy Daisy
   desc: {fileID: 3668615195326502940}
   descriptions:
-  - Elefun uses its tail to heal itself for 10 hp.
+  - Flashyderm uses its tail to heal itself for 10 hp.
   - Kimodude lets out a toxic gas that increases all damage it deals by 2 until the
     end of the battle.
-  - Mixenmash does a topsy-turvy dance which inverses which creatures are super effective
+  - Mixenmag does a topsy-turvy dance which inverses which creatures are super effective
     against each other.
 --- !u!1 &8581684792431482750
 GameObject:
