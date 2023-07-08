@@ -11,7 +11,7 @@ public class SceneSwitcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (player == null)
+        if (player != null)
         {
             player = PlayerMovement.instance.gameObject;
         }
@@ -25,7 +25,7 @@ public class SceneSwitcher : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.transform.position = newLocation;
+        collision.gameObject.transform.position = newLocation;
         SceneManager.LoadScene(nextLevel);
     }
 }

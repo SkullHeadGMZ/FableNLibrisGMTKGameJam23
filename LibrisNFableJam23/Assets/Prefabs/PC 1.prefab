@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7200537765942438607}
   - component: {fileID: 5842909283710537476}
-  - component: {fileID: 5055075382344818722}
+  - component: {fileID: 220378630727224465}
   m_Layer: 0
   m_Name: Art
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c246187670a4ff4e8880ad317764998, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1ed4401869f2ec4c9e0c67fb6453b15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5055075382344818722
+--- !u!95 &220378630727224465
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 147534883468397938}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6bfaca3ca8ff2134aa3aad62bd550f4f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e1ebd2d1fe36c84e89aff8600c14ca6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8060413467451210904}
   - component: {fileID: 996583248552159618}
   m_Layer: 0
-  m_Name: PC
+  m_Name: PC 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
   player: {fileID: 8727244867316882875}
   rb: {fileID: 996583248552159618}
   canMove: 0
-  anim: {fileID: 5055075382344818722}
+  anim: {fileID: 220378630727224465}
 --- !u!61 &1149120595521701079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -249,12 +249,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 920146d6886339242b1cc1f2d8186ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
+  Type: 1
   attack: 5
   maxHP: 50
   hp: 50
-  superEfective: 1
-  reverseEffective: 2
+  superEfective: 2
+  reverseEffective: 0
   defTurns: 0
   extraDmg: 0
 --- !u!50 &996583248552159618

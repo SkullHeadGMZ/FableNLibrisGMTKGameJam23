@@ -120,7 +120,9 @@ MonoBehaviour:
   goodButt: {fileID: 2084186139155648708}
   badButt: {fileID: 2084186138796698287}
   trickButt: {fileID: 2084186140105056484}
-  playerMon: {fileID: 0}
+  goodPrefab: {fileID: 8727244867316882875, guid: c6b91dcea7641da479121abfff4442e5, type: 3}
+  badPrefab: {fileID: 8727244867316882875, guid: 03b8d94250264214e8e51a31976a91a3, type: 3}
+  trickPrefab: {fileID: 8727244867316882875, guid: 2d4d6be4e5f2f474bba2f51dd0fd5fc5, type: 3}
   goodSprite: {fileID: 21300000, guid: 8c246187670a4ff4e8880ad317764998, type: 3}
   badSprite: {fileID: 21300000, guid: a1ed4401869f2ec4c9e0c67fb6453b15, type: 3}
   trickSprite: {fileID: 21300000, guid: 7553416da9fdc06408dcbbb8e9a6b6bc, type: 3}

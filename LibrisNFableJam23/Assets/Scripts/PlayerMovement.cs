@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 movement;
     public bool canMove;
+    public Animator anim;
 
     public static PlayerMovement instance;
     // Start is called before the first frame update
@@ -49,6 +50,26 @@ public class PlayerMovement : MonoBehaviour
         {
             movement = Vector2.zero;
             return;
+        }
+        if (movement.y > 0)
+        {
+            anim.SetInteger("animNum", 1);
+        }
+        else if (movement.y < 0)
+        {
+            anim.SetInteger("animNum", 3);
+        }
+        else if (movement.x > 0)
+        {
+            anim.SetInteger("animNum", 2);
+        }
+        else if (movement.x < 0)
+        {
+            anim.SetInteger("animNum", 4);
+        }
+        else
+        {
+            anim.SetInteger("animNum", 0);
         }
     }
     void FixedUpdate()

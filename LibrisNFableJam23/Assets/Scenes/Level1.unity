@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSwapper
       objectReference: {fileID: 0}
+    - target: {fileID: 1160899156726280670, guid: 8df52c0f37f7d6a4d8546beb811c4320, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8df52c0f37f7d6a4d8546beb811c4320, type: 3}
 --- !u!1001 &8581684791042175096

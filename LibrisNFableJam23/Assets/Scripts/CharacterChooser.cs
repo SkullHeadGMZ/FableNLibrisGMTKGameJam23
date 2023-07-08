@@ -8,14 +8,17 @@ public class CharacterChooser : MonoBehaviour
     public Button goodButt;
     public Button badButt;
     public Button trickButt;
-    public Monster playerMon;
+    public GameObject goodPrefab;
+    public GameObject badPrefab;
+    public GameObject trickPrefab;
+    Monster playerMon;
     public Sprite goodSprite;
     public Sprite badSprite;
     public Sprite trickSprite;
     // Start is called before the first frame update
     void Start()
     {
-        playerMon = GameObject.FindGameObjectWithTag("Player").GetComponent<Monster>();
+        //playerMon = GameObject.FindGameObjectWithTag("Player").GetComponent<Monster>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class CharacterChooser : MonoBehaviour
 
     public void ChooseGood()
     {
+        GameObject playerClone = Instantiate(goodPrefab, Vector3.zero, Quaternion.identity);
+        playerMon = playerClone.GetComponent<Monster>();
         playerMon.Type = MonsterType.Good;
         playerMon.superEfective = MonsterType.Bad;
         playerMon.reverseEffective = MonsterType.Tricky;
@@ -35,6 +40,8 @@ public class CharacterChooser : MonoBehaviour
 
     public void ChooseBad()
     {
+        GameObject playerClone = Instantiate(badPrefab, Vector3.zero, Quaternion.identity);
+        playerMon = playerClone.GetComponent<Monster>();
         playerMon.Type = MonsterType.Bad;
         playerMon.superEfective = MonsterType.Tricky;
         playerMon.reverseEffective = MonsterType.Good;
@@ -44,6 +51,8 @@ public class CharacterChooser : MonoBehaviour
 
     public void ChooseTrick()
     {
+        GameObject playerClone = Instantiate(trickPrefab, Vector3.zero, Quaternion.identity);
+        playerMon = playerClone.GetComponent<Monster>();
         playerMon.Type = MonsterType.Tricky;
         playerMon.superEfective = MonsterType.Good;
         playerMon.reverseEffective = MonsterType.Bad;
