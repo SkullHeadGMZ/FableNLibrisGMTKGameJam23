@@ -12,7 +12,7 @@ public class BattleManager : MonoBehaviour
     public GameObject attackButt;
     public GameObject defButt;
     public GameObject statButt;
-    public TextMeshPro battleTxt;
+    public TextMeshProUGUI battleTxt;
     public Monster player;
     public moveType playerMove;
     public Monster opponent;
@@ -114,6 +114,8 @@ public class BattleManager : MonoBehaviour
         battleButtons.SetActive(false);
         battleTextUI.SetActive(true);
         phase = battlePhase.battlePhase;
+        battleTextUI.SetActive(true);
+        battleButtons.SetActive(false);
         int i = Random.Range(0, 3);
         print (i);
         if (i == 0)
@@ -299,7 +301,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            StartChoosePhase();
+            return;
         }
     }
 

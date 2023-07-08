@@ -736,7 +736,7 @@ MonoBehaviour:
   attackButt: {fileID: 8581684792093720251}
   defButt: {fileID: 8581684790966467577}
   statButt: {fileID: 8581684792140179525}
-  battleTxt: {fileID: 8581684792125758492}
+  battleTxt: {fileID: 8581684792125758494}
   player: {fileID: 0}
   playerMove: 0
   opponent: {fileID: 0}
