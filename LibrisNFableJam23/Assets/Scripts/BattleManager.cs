@@ -104,8 +104,10 @@ public class BattleManager : MonoBehaviour
             print("opp losses");
             mainCam.gameObject.SetActive(true);
             battleCam.gameObject.SetActive(false);
-            playerSprite = null;
-            oppSprite = null;
+            playerSprite.GetComponent<SpriteRenderer>().sprite = null;
+            oppSprite.GetComponent<SpriteRenderer>().sprite = null;
+            opponent.gameObject.SetActive(false);
+            player.gameObject.GetComponent<PlayerMovement>().canMove = true;
         }
     }
 

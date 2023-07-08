@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     int newY;
     public Rigidbody2D rb;
     Vector2 movement;
+    public bool canMove;
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         /*newX = Mathf.FloorToInt(player.transform.position.x);
         newY = newY = Mathf.FloorToInt(player.transform.position.y);*/
     }
@@ -22,8 +24,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (canMove == true)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            movement = Vector2.zero;
+            return;
+        }
     }
     void FixedUpdate()
     {

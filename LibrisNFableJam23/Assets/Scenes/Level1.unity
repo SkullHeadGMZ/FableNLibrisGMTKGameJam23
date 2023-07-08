@@ -339,6 +339,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1336746256776899600, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336746256776899600, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336746256776899600, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209108209238681421, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209108209238681421, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8581684790989366389, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
       propertyPath: m_Name
       value: BattleManager

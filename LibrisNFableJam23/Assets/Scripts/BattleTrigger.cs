@@ -21,6 +21,7 @@ public class BattleTrigger : MonoBehaviour
     {
         print("You have entered a battle");
         battleMan.opponent = gameObject.GetComponent<Monster>();
+        collision.gameObject.GetComponent<PlayerMovement>().canMove = false;
         battleMan.StartBattle();
     }
 }
