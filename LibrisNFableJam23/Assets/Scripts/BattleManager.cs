@@ -167,15 +167,15 @@ public class BattleManager : MonoBehaviour
         }
         else if (oppMove == moveType.status && opponent.Type == MonsterType.Good)
         {
-            oppMoveText = "You restored health!";
+            oppMoveText = "Your opponent restored health!";
         }
         else if (oppMove == moveType.status && opponent.Type == MonsterType.Bad)
         {
-            oppMoveText = "You've increased your damage rate!";
+            oppMoveText = "Your opponent increased their damage rate!";
         }
         else if (oppMove == moveType.status && opponent.Type == MonsterType.Tricky)
         {
-            oppMoveText = "You reversed type effectivenss!";
+            oppMoveText = "Your opponent reversed type effectivenss!";
         }
         battleTxt.text = playerMoveText + oppMoveText;
 
