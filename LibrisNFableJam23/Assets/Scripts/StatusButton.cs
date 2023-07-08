@@ -8,6 +8,8 @@ public class StatusButton : MonoBehaviour
     public TextMeshProUGUI butt;
     public BattleManager battleMan;
     public string[] Names;
+    public TextMeshProUGUI desc;
+    public string[] descriptions;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +17,17 @@ public class StatusButton : MonoBehaviour
         {
             print(battleMan.player.Type);
             butt.text = Names[0];
+            desc.text = descriptions[0];
         }
         else if (battleMan.player.Type == MonsterType.Bad)
         {
             butt.text = Names[1];
+            desc.text = descriptions[1];
         }
         else if (battleMan.player.Type == MonsterType.Tricky)
         {
             butt.text = Names[2];
+            desc.text = descriptions[2];
         }
     }
 

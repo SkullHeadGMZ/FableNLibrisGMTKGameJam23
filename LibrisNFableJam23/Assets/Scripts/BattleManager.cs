@@ -211,7 +211,7 @@ public class BattleManager : MonoBehaviour
                     DamageCalc(player, opponent);
                 }
                 else if(opponent.Type == MonsterType.Bad) {
-                    opponent.extraDmg += 1;
+                    opponent.extraDmg += 2;
                     DamageCalc(player, opponent);
                 }
                 else if (opponent.Type == MonsterType.Tricky)
@@ -246,7 +246,7 @@ public class BattleManager : MonoBehaviour
                 }
                 else if (opponent.Type == MonsterType.Bad)
                 {
-                    opponent.extraDmg += 1;
+                    opponent.extraDmg += 2;
                     player.defTurns += 2;
                 }
                 else if (opponent.Type == MonsterType.Tricky)
@@ -268,7 +268,7 @@ public class BattleManager : MonoBehaviour
             }
             else if (player.Type == MonsterType.Bad)
             {
-                player.extraDmg += 1;
+                player.extraDmg += 2;
             }
             else if (player.Type == MonsterType.Tricky)
             {
@@ -295,7 +295,7 @@ public class BattleManager : MonoBehaviour
                 }
                 else if (opponent.Type == MonsterType.Bad)
                 {
-                    opponent.extraDmg += 1;
+                    opponent.extraDmg += 2;
                 }
                 else if (opponent.Type == MonsterType.Tricky)
                 {
