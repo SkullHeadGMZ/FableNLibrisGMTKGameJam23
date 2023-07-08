@@ -13,13 +13,28 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 movement;
     public bool canMove;
+
+    public static PlayerMovement instance;
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject); 
         canMove = true;
         /*newX = Mathf.FloorToInt(player.transform.position.x);
         newY = newY = Mathf.FloorToInt(player.transform.position.y);*/
+    }
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else { 
+            if(instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     // Update is called once per frame

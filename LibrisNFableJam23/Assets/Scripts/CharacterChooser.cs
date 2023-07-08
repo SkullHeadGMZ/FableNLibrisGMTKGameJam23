@@ -47,7 +47,7 @@ public class CharacterChooser : MonoBehaviour
         playerMon.Type = MonsterType.Tricky;
         playerMon.superEfective = MonsterType.Good;
         playerMon.reverseEffective = MonsterType.Bad;
-        playerMon.gameObject.transform.GetComponentInChildren<SpriteRenderer>().sprite = trickSprite;
+        playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = trickSprite;
         gameObject.SetActive(false);
     }
 }
