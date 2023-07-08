@@ -6,8 +6,8 @@ public class Monster : MonoBehaviour
 {
     public MonsterType Type;
     public int attack;
-    public int maxHP;
-    public int hp;
+    public float maxHP;
+    public float hp;
     public MonsterType superEfective;
     public MonsterType reverseEffective;
     public int defTurns = 0;

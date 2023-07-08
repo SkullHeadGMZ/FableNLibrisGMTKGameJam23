@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class BattleManager : MonoBehaviour
     public Sprite[] battleSprites;
     public GameObject playerSprite;
     public GameObject oppSprite;
+    public Image playerHpBar;
+    public Image oppHpBar;
     //keeps track of whetehr tricky is active
     bool typesInversed;
     // Start is called before the first frame update
@@ -79,6 +82,8 @@ public class BattleManager : MonoBehaviour
         mainCam.gameObject.SetActive(false);
         print("maincam off");
         battleTextUI.SetActive(true);
+        playerHpBar.fillAmount = player.hp / player.maxHP;
+        oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
         battleButtons.SetActive(false);
         battleTxt.text = "A TRAINER ambushued you! They sent out a " + opponent.Type.ToString() + "monster!";
         player.extraDmg = 0;
@@ -297,6 +302,8 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+        playerHpBar.fillAmount = player.hp / player.maxHP;
+        oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
 
         if ((player.hp <=0) || (opponent.hp <= 0)) {
             EndBattle();
