@@ -28,4 +28,9 @@ public class SceneSwitcher : MonoBehaviour
         collision.gameObject.transform.position = newLocation;
         SceneManager.LoadScene(nextLevel);
     }
+
+    public void SwitchScene()
+    {
+        SceneManager.LoadScene(nextLevel);
+    }
 }
