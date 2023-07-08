@@ -8,7 +8,7 @@ public class BattleTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        battleMan = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
     }
 
     // Update is called once per frame

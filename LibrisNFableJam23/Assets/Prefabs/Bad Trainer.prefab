@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   attack: 5
-  maxHP: 1
+  maxHP: 10
   hp: 10
   superEfective: 2
   reverseEffective: 0

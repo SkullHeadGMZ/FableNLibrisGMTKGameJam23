@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &222024719 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8581684790989366391, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
-  m_PrefabInstance: {fileID: 8581684791042175096}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f498ac58522a97247b623cf0dadddd9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &492717489
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,10 +330,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030272898109622597, guid: 07e24aef1a7cd4d4cb96002f259df0f6, type: 3}
-      propertyPath: battleMan
-      value: 
-      objectReference: {fileID: 222024719}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07e24aef1a7cd4d4cb96002f259df0f6, type: 3}
 --- !u!1001 &8581684791042175096
@@ -406,6 +391,10 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 492717491}
+    - target: {fileID: 8581684791482079338, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -179.99997
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
 --- !u!1001 &8727244867917145126

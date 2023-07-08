@@ -18,6 +18,9 @@ public class BattleManager : MonoBehaviour
     public Monster opponent;
     public moveType oppMove;
     public battlePhase phase;
+    public Sprite[] battleSprites;
+    public GameObject playerSprite;
+    public GameObject oppSprite;
     //keeps track of whetehr tricky is active
     bool typesInversed;
     // Start is called before the first frame update
@@ -39,6 +42,38 @@ public class BattleManager : MonoBehaviour
     public void StartBattle ()
     {
         phase = battlePhase.startPhase;
+        if(player.Type == MonsterType.Good)
+        {
+            playerSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[0];
+        }
+        else if(player.Type == MonsterType.Bad)
+        {
+            playerSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[1];
+        }
+        else if(player.Type == MonsterType.Tricky)
+        {
+            playerSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[2];
+        }
+        else
+        {
+            playerSprite.GetComponent<SpriteRenderer>().sprite = null;
+        }
+        if(opponent.Type == MonsterType.Good)
+        {
+            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[0];
+        }
+        else if (opponent.Type == MonsterType.Bad)
+        {
+            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[1];
+        }
+        else if (opponent.Type == MonsterType.Tricky)
+        {
+            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[2];
+        }
+        else
+        {
+            oppSprite = null;
+        }
         battleCam.gameObject.SetActive(true);
         print("battlecam on");
         mainCam.gameObject.SetActive(false);
@@ -69,6 +104,8 @@ public class BattleManager : MonoBehaviour
             print("opp losses");
             mainCam.gameObject.SetActive(true);
             battleCam.gameObject.SetActive(false);
+            playerSprite = null;
+            oppSprite = null;
         }
     }
 
