@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 8060413467451210904}
   - component: {fileID: 996583248552159618}
   - component: {fileID: 4121551347378819226}
+  - component: {fileID: -863437554910099429}
   m_Layer: 0
   m_Name: PC 1
   m_TagString: Player
@@ -159,6 +160,10 @@ MonoBehaviour:
   rb: {fileID: 996583248552159618}
   canMove: 0
   anim: {fileID: 220378630727224465}
+  walkSprites:
+  - {fileID: 21300000, guid: 88e62ea97b8cb0049ad48e13835c9040, type: 3}
+  - {fileID: 21300000, guid: a1ed4401869f2ec4c9e0c67fb6453b15, type: 3}
+  - {fileID: 21300000, guid: a84e4ead9f7c77e46b39852d917e2f1e, type: 3}
 --- !u!61 &1149120595521701079
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -242,3 +247,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-863437554910099429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727244867316882875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a385d4818bf000469c4976ba5d15f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     public bool canMove;
     public Animator anim;
+    public Sprite[] walkSprites;
+    SpriteRenderer mySprite;
 
     public static PlayerMovement instance;
     // Start is called before the first frame update
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject); 
         canMove = true;
+        mySprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         /*newX = Mathf.FloorToInt(player.transform.position.x);
         newY = newY = Mathf.FloorToInt(player.transform.position.y);*/
     }
@@ -59,7 +62,27 @@ public class PlayerMovement : MonoBehaviour
             movement = Vector2.zero;
             return;
         }
-        if (movement.y > 0)
+        if(Input.GetAxisRaw("Vertical") > 0)
+        {
+            mySprite.sprite = walkSprites[0];
+            mySprite.flipX = false;
+        }
+        if (Input.GetAxisRaw("Vertical") < 0)
+        {
+            mySprite.sprite = walkSprites[1];
+            mySprite.flipX = false;
+        }
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            mySprite.sprite = walkSprites[2];
+            mySprite.flipX = true;
+        }
+        if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            mySprite.sprite = walkSprites[2];
+            mySprite.flipX = false;
+        }
+        /*if (movement.y > 0)
         {
             anim.SetInteger("animNum", 1);
         }
@@ -78,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetInteger("animNum", 0);
-        }
+        }*/
     }
     void FixedUpdate()
     {
