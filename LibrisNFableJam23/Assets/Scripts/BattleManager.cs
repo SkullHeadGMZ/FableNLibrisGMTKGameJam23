@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour
 {
@@ -102,7 +103,7 @@ public class BattleManager : MonoBehaviour
         if(player.hp <= 0)
         {
             print("player loses");
-            //loadscene.gameover
+            SceneManager.LoadScene("GameOverLoss");
         }
         else if (opponent.hp <= 0)
         {
