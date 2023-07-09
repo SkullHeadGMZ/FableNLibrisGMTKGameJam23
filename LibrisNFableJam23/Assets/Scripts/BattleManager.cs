@@ -109,7 +109,7 @@ public class BattleManager : MonoBehaviour
         playerHpBar.fillAmount = player.hp / player.maxHP;
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
         battleButtons.SetActive(false);
-        battleTxt.text = "A TRAINER ambushed you! They sent out a " + opponent.Type.ToString() + " monster!";
+        battleTxt.text = "A collector spotted you!\r\nThey sent out a " + opponent.Type.ToString() + " monster!";
         startButt.SetActive(true);
         stopButt.SetActive(false);
         playerDef.gameObject.SetActive(false);
@@ -220,7 +220,7 @@ public class BattleManager : MonoBehaviour
         {
             oppMoveText = "Your opponent reversed type effectivenss!";
         }
-        battleTxt.text = playerMoveText + " " + oppMoveText;
+        battleTxt.text = playerMoveText + "\r\n" + oppMoveText;
 
         //figure out how the battle goes
        if(playerMove == moveType.attack)
@@ -388,11 +388,11 @@ public class BattleManager : MonoBehaviour
             startButt.SetActive(false);
             if(player.hp <= 0)
             {
-                battleTxt.text = "Your opponent defeated you!";
+                battleTxt.text = "Your opponent defeated you…";
             }
             else if(opponent.hp <= 0)
             {
-                battleTxt.text = "Congratulations! You bested your opponent and escaped";
+                battleTxt.text = "Congratulations!\r\nYou bested your opponent and escaped!";
             }
         }
         else
