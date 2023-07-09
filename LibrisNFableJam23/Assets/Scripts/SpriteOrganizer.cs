@@ -11,7 +11,7 @@ public class SpriteOrganizer : MonoBehaviour
         int playerSort = 0;
         for(int i = 0; i < walls.Length; i++)
         {
-            walls[i].GetComponentInChildren<SpriteRenderer>().sortingOrder = Mathf.RoundToInt(walls[i].transform.position.y) * -1;
+            walls[i].GetComponentInChildren<SpriteRenderer>().sortingOrder = Mathf.FloorToInt( walls[i].transform.position.y) * -1;
             if(Mathf.RoundToInt(walls[i].transform.position.y) * -1 < playerSort)
             {
                 playerSort = (Mathf.FloorToInt(walls[i].transform.position.y) * -1) -1 ;
