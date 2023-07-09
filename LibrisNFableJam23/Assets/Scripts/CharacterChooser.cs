@@ -18,7 +18,8 @@ public class CharacterChooser : MonoBehaviour
     public GameObject exit;
     public GameObject gTrain;
     public GameObject bTrain;
-    public GameObject tTtrain;
+    public GameObject tTrain;
+    public GameObject battleMan;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class CharacterChooser : MonoBehaviour
         playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = goodSprite;
         GameObject firstEnemy = Instantiate(bTrain, new Vector3(0,10,0), Quaternion.identity);
         firstEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
+        battleMan.SetActive(true);
         exit.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -53,6 +55,9 @@ public class CharacterChooser : MonoBehaviour
         playerMon.superEfective = MonsterType.Tricky;
         playerMon.reverseEffective = MonsterType.Good;
         playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = badSprite;
+        GameObject firstEnemy = Instantiate(tTrain, new Vector3(0, 10, 0), Quaternion.identity);
+        firstEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
+        battleMan.SetActive(true);
         exit.SetActive(true);
         gameObject.SetActive(false);
     }
@@ -65,6 +70,9 @@ public class CharacterChooser : MonoBehaviour
         playerMon.superEfective = MonsterType.Good;
         playerMon.reverseEffective = MonsterType.Bad;
         playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = trickSprite;
+        GameObject firstEnemy = Instantiate(gTrain, new Vector3(0, 10, 0), Quaternion.identity);
+        firstEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
+        battleMan.SetActive(true);
         exit.SetActive(true);
         gameObject.SetActive(false);
     }

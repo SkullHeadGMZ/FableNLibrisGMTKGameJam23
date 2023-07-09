@@ -828,6 +828,11 @@ MonoBehaviour:
   goodSprite: {fileID: 21300000, guid: 8c246187670a4ff4e8880ad317764998, type: 3}
   badSprite: {fileID: 21300000, guid: a1ed4401869f2ec4c9e0c67fb6453b15, type: 3}
   trickSprite: {fileID: 21300000, guid: 7553416da9fdc06408dcbbb8e9a6b6bc, type: 3}
+  exit: {fileID: 0}
+  gTrain: {fileID: 1030272898109622593, guid: 07e24aef1a7cd4d4cb96002f259df0f6, type: 3}
+  bTrain: {fileID: 7049703204395766129, guid: 13bc3f7062d0e4447934f7f752921484, type: 3}
+  tTrain: {fileID: 4422091087319818950, guid: 802238e5b0819e849a7e0d06e4507a23, type: 3}
+  battleMan: {fileID: 0}
 --- !u!1 &2084186138453671491
 GameObject:
   m_ObjectHideFlags: 0

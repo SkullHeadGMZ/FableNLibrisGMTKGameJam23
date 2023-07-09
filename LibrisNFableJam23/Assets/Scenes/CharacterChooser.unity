@@ -4743,6 +4743,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024626100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8581684790989366389, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+  m_PrefabInstance: {fileID: 1481940172767028183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1247329519
 GameObject:
   m_ObjectHideFlags: 0
@@ -4939,6 +4944,10 @@ PrefabInstance:
       propertyPath: exit
       value: 
       objectReference: {fileID: 1948349362}
+    - target: {fileID: 2084186138167245339, guid: 9e0925269dc9ed84db996e2b366f3425, type: 3}
+      propertyPath: battleMan
+      value: 
+      objectReference: {fileID: 1024626100}
     - target: {fileID: 2084186138167245342, guid: 9e0925269dc9ed84db996e2b366f3425, type: 3}
       propertyPath: m_Name
       value: CharacterChooser
@@ -4955,6 +4964,10 @@ PrefabInstance:
     - target: {fileID: 8581684790989366389, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
       propertyPath: m_Name
       value: BattleManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581684790989366389, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8581684790989366390, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
       propertyPath: m_RootOrder
@@ -5000,5 +5013,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8581684790989366391, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 1247329521}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f49738bead7f4a459cea2860878ff14, type: 3}

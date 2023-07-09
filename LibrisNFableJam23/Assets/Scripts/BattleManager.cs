@@ -33,10 +33,23 @@ public class BattleManager : MonoBehaviour
     public GameObject inverseSymbol;
     public GameObject stopButt;
     public GameObject startButt;
+    bool hasHappened;
     //keeps track of whetehr tricky is active
     bool typesInversed;
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Monster>();
+        if (player != null)
+        {
+            print("Found Player");
+
+        }
+        mainCam.gameObject.SetActive(true);
+        battleCam.gameObject.SetActive(false);
+    }*/
+
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Monster>();
         if (player != null)
