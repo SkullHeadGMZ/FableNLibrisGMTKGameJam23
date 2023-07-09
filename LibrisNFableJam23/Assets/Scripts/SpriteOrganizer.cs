@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpriteOrganizer : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
         int playerSort = 0;
