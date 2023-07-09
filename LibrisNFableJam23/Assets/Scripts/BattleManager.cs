@@ -114,15 +114,15 @@ public class BattleManager : MonoBehaviour
         battleTxt.text = "A collector spotted you!\r\nThey sent out a ";
         if(opponent.Type == MonsterType.Good)
         {
-            battleTxt.text = battleTxt.text + "Flashiderm";
+            battleTxt.text = battleTxt.text + "Flashiderm!";
         }
         else if(opponent.Type == MonsterType.Bad)
         {
-            battleTxt.text = battleTxt.text + "Kimo-do";
+            battleTxt.text = battleTxt.text + "Kimo-do!";
         }
         else if (opponent.Type == MonsterType.Tricky)
         {
-            battleTxt.text = battleTxt.text + "Mixenmag";
+            battleTxt.text = battleTxt.text + "Mixenmag!";
         }
         startButt.SetActive(true);
         stopButt.SetActive(false);
