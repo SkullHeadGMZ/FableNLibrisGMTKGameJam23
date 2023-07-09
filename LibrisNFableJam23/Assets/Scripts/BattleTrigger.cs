@@ -22,6 +22,18 @@ public class BattleTrigger : MonoBehaviour
         {
             mySprite.sprite = owSprites[0];
         }
+        else if (looking == LookDirection.Right)
+        {
+            mySprite.sprite = owSprites[1];
+        }
+        else if (looking == LookDirection.Down)
+        {
+            mySprite.sprite = owSprites[2];
+        }
+        else if (looking == LookDirection.Left)
+        {
+            mySprite.sprite = owSprites[3];
+        }
     }
 
     private void FixedUpdate()

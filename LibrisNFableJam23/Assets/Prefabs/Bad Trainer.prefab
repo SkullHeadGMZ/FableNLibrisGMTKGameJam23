@@ -162,6 +162,11 @@ MonoBehaviour:
   rb2D: {fileID: 0}
   looking: 0
   anim: {fileID: 0}
+  owSprites:
+  - {fileID: 21300000, guid: e9be98122c1e9d445965f79d45bb30bc, type: 3}
+  - {fileID: 21300000, guid: 95db2f81efb72c4408004facfcfbce09, type: 3}
+  - {fileID: 21300000, guid: 656f71c5767dae54c8b917f6317c144f, type: 3}
+  - {fileID: 21300000, guid: 09414279bbc9e7b44b78e2f17a07f6db, type: 3}
 --- !u!114 &7049703204395766128
 MonoBehaviour:
   m_ObjectHideFlags: 0
