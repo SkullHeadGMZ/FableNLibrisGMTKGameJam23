@@ -34,14 +34,16 @@ public class CharacterChooser : MonoBehaviour
 
     public void ChooseGood()
     {
-        GameObject playerClone = Instantiate(goodPrefab, Vector3.zero, Quaternion.identity);
+        GameObject playerClone = Instantiate(goodPrefab,new Vector3(-4, 0, 0), Quaternion.identity);
         playerMon = playerClone.GetComponent<Monster>();
         playerMon.Type = MonsterType.Good;
         playerMon.superEfective = MonsterType.Bad;
         playerMon.reverseEffective = MonsterType.Tricky;
         playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = goodSprite;
-        GameObject firstEnemy = Instantiate(bTrain, new Vector3(0,10,0), Quaternion.identity);
+        GameObject firstEnemy = Instantiate(bTrain, new Vector3(-2, 4 ,0), Quaternion.identity);
         firstEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
+        GameObject secondEnemy = Instantiate(tTrain, new Vector3(3, 3, 0), Quaternion.identity);
+        secondEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
         battleMan.SetActive(true);
         exit.SetActive(true);
         gameObject.SetActive(false);
@@ -49,14 +51,16 @@ public class CharacterChooser : MonoBehaviour
 
     public void ChooseBad()
     {
-        GameObject playerClone = Instantiate(badPrefab, Vector3.zero, Quaternion.identity);
+        GameObject playerClone = Instantiate(badPrefab, new Vector3(-4, 0, 0), Quaternion.identity);
         playerMon = playerClone.GetComponent<Monster>();
         playerMon.Type = MonsterType.Bad;
         playerMon.superEfective = MonsterType.Tricky;
         playerMon.reverseEffective = MonsterType.Good;
         playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = badSprite;
-        GameObject firstEnemy = Instantiate(tTrain, new Vector3(0, 10, 0), Quaternion.identity);
+        GameObject firstEnemy = Instantiate(tTrain, new Vector3(-2, 4, 0), Quaternion.identity);
         firstEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
+        GameObject secondEnemy = Instantiate(gTrain, new Vector3(3, 3, 0), Quaternion.identity);
+        secondEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
         battleMan.SetActive(true);
         exit.SetActive(true);
         gameObject.SetActive(false);
@@ -64,14 +68,16 @@ public class CharacterChooser : MonoBehaviour
 
     public void ChooseTrick()
     {
-        GameObject playerClone = Instantiate(trickPrefab, Vector3.zero, Quaternion.identity);
+        GameObject playerClone = Instantiate(trickPrefab, new Vector3(-4, 0, 0), Quaternion.identity);
         playerMon = playerClone.GetComponent<Monster>();
         playerMon.Type = MonsterType.Tricky;
         playerMon.superEfective = MonsterType.Good;
         playerMon.reverseEffective = MonsterType.Bad;
         playerMon.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = trickSprite;
-        GameObject firstEnemy = Instantiate(gTrain, new Vector3(0, 10, 0), Quaternion.identity);
+        GameObject firstEnemy = Instantiate(gTrain, new Vector3(-2, 4, 0), Quaternion.identity);
         firstEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
+        GameObject secondEnemy = Instantiate(bTrain, new Vector3(3, 3, 0), Quaternion.identity);
+        secondEnemy.GetComponent<BattleTrigger>().looking = LookDirection.Down;
         battleMan.SetActive(true);
         exit.SetActive(true);
         gameObject.SetActive(false);
