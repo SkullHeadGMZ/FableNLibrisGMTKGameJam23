@@ -205,8 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   attack: 5
-  maxHP: 10
-  hp: 10
+  maxHP: 15
+  hp: 15
   superEfective: 0
   reverseEffective: 1
   defTurns: 0
