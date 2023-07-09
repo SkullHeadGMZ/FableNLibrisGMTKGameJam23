@@ -103,10 +103,10 @@ public class BattleTrigger : MonoBehaviour
     IEnumerator PlayerFound()
     {
       exclamation.SetActive(true);
-      yield return new WaitForSeconds(2);
+        PlayerMovement.instance.canMove = false;
+      yield return new WaitForSeconds(1);
       print("You have entered a battle");
       battleMan.opponent = gameObject.GetComponent<Monster>();
-      PlayerMovement.instance.canMove = false;
       battleMan.inBattle = true;
       battleMan.StartBattle();
     }
