@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Grass BG
+    uniqueID: 108389965
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
