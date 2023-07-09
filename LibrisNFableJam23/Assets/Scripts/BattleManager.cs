@@ -26,6 +26,13 @@ public class BattleManager : MonoBehaviour
     public Image playerHpBar;
     public Image oppHpBar;
     public bool inBattle;
+    public Image playerDef;
+    public Image oppDef;
+    public GameObject[] playerDmg;
+    public GameObject[] oppDmg;
+    public GameObject inverseSymbol;
+    public GameObject stopButt;
+    public GameObject startButt;
     //keeps track of whetehr tricky is active
     bool typesInversed;
     // Start is called before the first frame update
@@ -88,6 +95,17 @@ public class BattleManager : MonoBehaviour
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
         battleButtons.SetActive(false);
         battleTxt.text = "A TRAINER ambushued you! They sent out a " + opponent.Type.ToString() + "monster!";
+        startButt.SetActive(true);
+        stopButt.SetActive(false);
+        playerDef.gameObject.SetActive(false);
+        oppDef.gameObject.SetActive(false);
+        playerDmg[0].gameObject.SetActive(false);
+        playerDmg[1].gameObject.SetActive(false);
+        playerDmg[2].gameObject.SetActive(false);
+        inverseSymbol.SetActive(false);
+        oppDmg[0].gameObject.SetActive(false);
+        oppDmg[1].gameObject.SetActive(false);
+        oppDmg[2].gameObject.SetActive(false);
         player.extraDmg = 0;
         player.defTurns = 0;
         opponent.extraDmg = 0;
@@ -187,7 +205,7 @@ public class BattleManager : MonoBehaviour
         {
             oppMoveText = "Your opponent reversed type effectivenss!";
         }
-        battleTxt.text = playerMoveText + oppMoveText;
+        battleTxt.text = playerMoveText + " " + oppMoveText;
 
         //figure out how the battle goes
        if(playerMove == moveType.attack)
@@ -200,6 +218,7 @@ public class BattleManager : MonoBehaviour
             else if(oppMove == moveType.defense)
             {
                 opponent.defTurns += 2;
+                oppDef.gameObject.SetActive(true);
                 DamageCalc(player, opponent);
             }
             else if(oppMove == moveType.status)
@@ -215,10 +234,18 @@ public class BattleManager : MonoBehaviour
                 else if(opponent.Type == MonsterType.Bad) {
                     opponent.extraDmg += 2;
                     DamageCalc(player, opponent);
+                    for(int q = 0; q < 3; q++)
+                    {
+                        if (q < (opponent.extraDmg/2))
+                        {
+                            oppDmg[q].SetActive(true);
+                        }
+                    }
                 }
                 else if (opponent.Type == MonsterType.Tricky)
                 {
                     typesInversed = !typesInversed;
+                    inverseSymbol.SetActive(typesInversed);
                     DamageCalc(player, opponent);
                 }
             }
@@ -228,12 +255,15 @@ public class BattleManager : MonoBehaviour
             if(oppMove == moveType.attack)
             {
                 player.defTurns += 2;
+                playerDef.gameObject.SetActive(true);
                 DamageCalc(opponent, player);
             }
             else if (oppMove == moveType.defense)
             {
                 player.defTurns += 2;
+                playerDef.gameObject.SetActive(true);
                 opponent.defTurns += 2;
+                oppDef.gameObject.SetActive(true);
             }
             else if (oppMove == moveType.status)
             {
@@ -245,16 +275,27 @@ public class BattleManager : MonoBehaviour
                         opponent.hp = opponent.maxHP;
                     }
                     player.defTurns += 2;
+                    playerDef.gameObject.SetActive(true);
                 }
                 else if (opponent.Type == MonsterType.Bad)
                 {
                     opponent.extraDmg += 2;
+                    for (int q = 0; q < 3; q++)
+                    {
+                        if (q < (opponent.extraDmg / 2))
+                        {
+                            oppDmg[q].SetActive(true);
+                        }
+                    }
                     player.defTurns += 2;
+                    playerDef.gameObject.SetActive(true);
                 }
                 else if (opponent.Type == MonsterType.Tricky)
                 {
                     typesInversed = !typesInversed;
+                    inverseSymbol.SetActive(typesInversed);
                     player.defTurns += 2;
+                    playerDef.gameObject.SetActive(true);
                 }
             }
         }
@@ -271,10 +312,18 @@ public class BattleManager : MonoBehaviour
             else if (player.Type == MonsterType.Bad)
             {
                 player.extraDmg += 2;
+                for (int q = 0; q < 3; q++)
+                {
+                    if(q < (player.extraDmg / 2)) 
+                    {
+                    playerDmg[q].SetActive(true);
+                    }
+                }
             }
             else if (player.Type == MonsterType.Tricky)
             {
                 typesInversed = !typesInversed;
+                inverseSymbol.SetActive(typesInversed);
             }
 
             if(oppMove == moveType.attack)
@@ -284,6 +333,7 @@ public class BattleManager : MonoBehaviour
             else if (oppMove == moveType.defense)
             {
                 opponent.defTurns += 2;
+                oppDef.gameObject.SetActive(true);
             }
             else if (oppMove == moveType.status)
             {
@@ -298,10 +348,19 @@ public class BattleManager : MonoBehaviour
                 else if (opponent.Type == MonsterType.Bad)
                 {
                     opponent.extraDmg += 2;
+                    for (int q = 0; q < 3; q++)
+                    {
+                        if (q < (opponent.extraDmg / 2))
+                        {
+                            oppDmg[q].SetActive(true);
+                        }
+                    }
+
                 }
                 else if (opponent.Type == MonsterType.Tricky)
                 {
                     typesInversed = !typesInversed;
+                    inverseSymbol.SetActive(typesInversed);
                 }
             }
         }
@@ -309,7 +368,17 @@ public class BattleManager : MonoBehaviour
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
 
         if ((player.hp <=0) || (opponent.hp <= 0)) {
-            EndBattle();
+            //EndBattle();
+            stopButt.SetActive(true);
+            startButt.SetActive(false);
+            if(player.hp <= 0)
+            {
+                battleTxt.text = "Your opponent defeated you!";
+            }
+            else if(opponent.hp <= 0)
+            {
+                battleTxt.text = "Congratulations! you bested your opponent and escaped";
+            }
         }
         else
         {
@@ -364,10 +433,32 @@ public class BattleManager : MonoBehaviour
         if(monA.defTurns > 0)
         {
             monA.defTurns -= 1;
+            if(monA.defTurns == 0)
+            {
+                if(monA.gameObject.tag == "Player")
+                {
+                    playerDef.gameObject.SetActive(false);
+                }
+                else
+                {
+                    oppDef.gameObject.SetActive(false);
+                }
+            }
         }
         if(monB.defTurns > 0)
         {
             monB.defTurns -= 1;
+            if (monB.defTurns == 0)
+            {
+                if (monB.gameObject.tag == "Player")
+                {
+                    playerDef.gameObject.SetActive(false);
+                }
+                else
+                {
+                    oppDef.gameObject.SetActive(false);
+                }
+            }
         }
     }
 
