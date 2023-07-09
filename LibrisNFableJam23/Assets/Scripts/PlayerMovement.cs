@@ -116,6 +116,14 @@ public class PlayerMovement : MonoBehaviour
             //mySprite.sprite = walkSprites[3];
             //print("dri");
         }
+        else
+        {
+            if(gameObject.GetComponent<Monster>().Type != MonsterType.Tricky)
+            {
+                anim.SetInteger("animNum", 0);
+                //print("ily fabel");
+            } 
+        }
         /*
         //go up
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){

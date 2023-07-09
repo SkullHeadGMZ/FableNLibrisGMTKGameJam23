@@ -34,6 +34,8 @@ public class BattleManager : MonoBehaviour
     public GameObject stopButt;
     public GameObject startButt;
     bool hasHappened;
+    public TextMeshProUGUI playerHpNum;
+    public TextMeshProUGUI oppHpNum;
     //keeps track of whetehr tricky is active
     bool typesInversed;
     // Start is called before the first frame update
@@ -393,6 +395,8 @@ public class BattleManager : MonoBehaviour
         }
         playerHpBar.fillAmount = player.hp / player.maxHP;
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
+        playerHpNum.text = player.hp.ToString() + "/" + player.maxHP;
+        oppHpNum.text = opponent.hp.ToString() + "/" + opponent.maxHP;
 
     }
 
