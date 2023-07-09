@@ -102,6 +102,10 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetInteger("animNum", 0);
         }*/
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
     void FixedUpdate()
     {
