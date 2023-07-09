@@ -94,23 +94,27 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
-            mySprite.sprite = walkSprites[0];
-            print("wup");
+            anim.SetInteger("animNum",1);
+            //mySprite.sprite = walkSprites[0];
+            //print("wup");
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
-            mySprite.sprite = walkSprites[1];
-            print("sdo");
+            anim.SetInteger("animNum", 3);
+            //mySprite.sprite = walkSprites[1];
+            //print("sdo");
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            mySprite.sprite = walkSprites[2];
-            print("ale");
+            anim.SetInteger("animNum", 4);
+            //mySprite.sprite = walkSprites[2];
+            //print("ale");
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            mySprite.sprite = walkSprites[3];
-            print("dri");
+            anim.SetInteger("animNum", 2);
+            //mySprite.sprite = walkSprites[3];
+            //print("dri");
         }
         /*
         //go up
