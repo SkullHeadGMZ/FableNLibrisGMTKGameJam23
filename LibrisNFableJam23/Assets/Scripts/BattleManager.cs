@@ -43,6 +43,8 @@ public class BattleManager : MonoBehaviour
         {
             print("Found Player");
         }
+        mainCam.gameObject.SetActive(true);
+        battleCam.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -94,7 +96,7 @@ public class BattleManager : MonoBehaviour
         playerHpBar.fillAmount = player.hp / player.maxHP;
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
         battleButtons.SetActive(false);
-        battleTxt.text = "A TRAINER ambushued you! They sent out a " + opponent.Type.ToString() + "monster!";
+        battleTxt.text = "A TRAINER ambushed you! They sent out a " + opponent.Type.ToString() + " monster!";
         startButt.SetActive(true);
         stopButt.SetActive(false);
         playerDef.gameObject.SetActive(false);
@@ -166,23 +168,23 @@ public class BattleManager : MonoBehaviour
         string oppMoveText = " ";
         if(playerMove == moveType.attack)
         {
-            playerMoveText = "You attacked!";
+            playerMoveText = "You attacked! ";
         }
         else if (playerMove == moveType.defense)
         {
-            playerMoveText = "You defended!";
+            playerMoveText = "You defended! ";
         }
         else if (playerMove == moveType.status && player.Type == MonsterType.Good)
         {
-            playerMoveText = "You restored health!";
+            playerMoveText = "You restored health! ";
         }
         else if (playerMove == moveType.status && player.Type == MonsterType.Bad)
         {
-            playerMoveText = "You've increased your damage rate!";
+            playerMoveText = "You increased your damage rate! ";
         }
         else if (playerMove == moveType.status && player.Type == MonsterType.Tricky)
         {
-            playerMoveText = "You reversed type effectivenss!";
+            playerMoveText = "You reversed type effectivenss! ";
         }
 
         if (oppMove == moveType.attack)
@@ -377,7 +379,7 @@ public class BattleManager : MonoBehaviour
             }
             else if(opponent.hp <= 0)
             {
-                battleTxt.text = "Congratulations! you bested your opponent and escaped";
+                battleTxt.text = "Congratulations! You bested your opponent and escaped";
             }
         }
         else
