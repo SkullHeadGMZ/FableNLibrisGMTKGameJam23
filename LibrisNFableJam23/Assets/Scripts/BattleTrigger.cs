@@ -11,6 +11,7 @@ public class BattleTrigger : MonoBehaviour
     RaycastHit2D hit;
     public Sprite[] owSprites;
     SpriteRenderer mySprite;
+    public GameObject exclamation;
     //public int raycDist;
     // Start is called before the first frame update
     void Start()
@@ -41,35 +42,38 @@ public class BattleTrigger : MonoBehaviour
         if (looking == LookDirection.Up)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
-            Debug.DrawRay(transform.position, Vector2.up * Mathf.Infinity, Color.black, 100);
-            print(gameObject.name + " hit " + hit.collider.name);
+            //Debug.DrawRay(transform.position, Vector2.up * Mathf.Infinity, Color.black, 100);
+            //print(gameObject.name + " hit " + hit.collider.name);
         }
         else if (looking == LookDirection.Right)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity);
-            Debug.DrawRay(transform.position, Vector2.right * Mathf.Infinity, Color.black, 100);
-            print(gameObject.name + " hit " + hit.collider.name);
+            //Debug.DrawRay(transform.position, Vector2.right * Mathf.Infinity, Color.black, 100);
+            //print(gameObject.name + " hit " + hit.collider.name);
         }
         else if (looking == LookDirection.Left)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity);
-            Debug.DrawRay(transform.position, Vector2.left * Mathf.Infinity, Color.black, 100);
-            print(gameObject.name + " hit " + hit.collider.name);
+            //Debug.DrawRay(transform.position, Vector2.left * Mathf.Infinity, Color.black, 100);
+            //print(gameObject.name + " hit " + hit.collider.name);
         }
         else if (looking == LookDirection.Down)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity);
-            Debug.DrawRay(transform.position, Vector2.down * Mathf.Infinity, Color.black, 100);
-            print(gameObject.name + " hit " + hit.collider.name);
+            //Debug.DrawRay(transform.position, Vector2.down * Mathf.Infinity, Color.black, 100);
+            //print(gameObject.name + " hit " + hit.collider.name);
         }
-        if (hit.collider.tag == "Player" && battleMan.inBattle == false)
+        if (hit.collider != null)
         {
-            PlayerFound();
-        }
-        else
-        {
-            print("Hit " + hit.collider.name + " but they aren't a monster");
-            return;
+            if (hit.collider.tag == "Player" && battleMan.inBattle == false)
+            {
+                StartCoroutine("PlayerFound");
+            }
+            else
+            {
+               // print("Hit " + hit.collider.name + " but they aren't a monster");
+                return;
+            }
         }
         //Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), gameObject.GetComponent<BoxCollider2D>());
     }
@@ -96,13 +100,15 @@ public class BattleTrigger : MonoBehaviour
         }
     }*/
 
-    public void PlayerFound()
+    IEnumerator PlayerFound()
     {
-            print("You have entered a battle");
-            battleMan.opponent = gameObject.GetComponent<Monster>();
-            PlayerMovement.instance.canMove = false;
-            battleMan.inBattle = true;
-            battleMan.StartBattle();
+      exclamation.SetActive(true);
+      yield return new WaitForSeconds(2);
+      print("You have entered a battle");
+      battleMan.opponent = gameObject.GetComponent<Monster>();
+      PlayerMovement.instance.canMove = false;
+      battleMan.inBattle = true;
+      battleMan.StartBattle();
     }
 }
 

@@ -87,15 +87,15 @@ public class BattleManager : MonoBehaviour
         }
         if(opponent.Type == MonsterType.Good)
         {
-            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[0];
+            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[3];
         }
         else if (opponent.Type == MonsterType.Bad)
         {
-            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[1];
+            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[4];
         }
         else if (opponent.Type == MonsterType.Tricky)
         {
-            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[2];
+            oppSprite.GetComponent<SpriteRenderer>().sprite = battleSprites[5];
         }
         else
         {
@@ -109,7 +109,19 @@ public class BattleManager : MonoBehaviour
         playerHpBar.fillAmount = player.hp / player.maxHP;
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
         battleButtons.SetActive(false);
-        battleTxt.text = "A collector spotted you!\r\nThey sent out a " + opponent.Type.ToString() + " monster!";
+        battleTxt.text = "A collector spotted you!\r\nThey sent out a ";
+        if(opponent.Type == MonsterType.Good)
+        {
+            battleTxt.text = battleTxt.text + "Flashiderm";
+        }
+        else if(opponent.Type == MonsterType.Bad)
+        {
+            battleTxt.text = battleTxt.text + "Kimo-do";
+        }
+        else if (opponent.Type == MonsterType.Tricky)
+        {
+            battleTxt.text = battleTxt.text + "Mixenmag";
+        }
         startButt.SetActive(true);
         stopButt.SetActive(false);
         playerDef.gameObject.SetActive(false);
@@ -193,7 +205,7 @@ public class BattleManager : MonoBehaviour
         }
         else if (playerMove == moveType.status && player.Type == MonsterType.Bad)
         {
-            playerMoveText = "You increased your damage rate! ";
+            playerMoveText = "You weakened your opponent's defense! ";
         }
         else if (playerMove == moveType.status && player.Type == MonsterType.Tricky)
         {
@@ -214,7 +226,7 @@ public class BattleManager : MonoBehaviour
         }
         else if (oppMove == moveType.status && opponent.Type == MonsterType.Bad)
         {
-            oppMoveText = "Your opponent increased their damage rate!";
+            oppMoveText = "Your opponent weakened your defense!";
         }
         else if (oppMove == moveType.status && opponent.Type == MonsterType.Tricky)
         {
@@ -382,30 +394,31 @@ public class BattleManager : MonoBehaviour
         playerHpBar.fillAmount = player.hp / player.maxHP;
         oppHpBar.fillAmount = opponent.hp / opponent.maxHP;
 
-        if ((player.hp <=0) || (opponent.hp <= 0)) {
+    }
+
+    public void StartChoosePhase()
+    {
+
+        if ((player.hp <= 0) || (opponent.hp <= 0))
+        {
             //EndBattle();
             stopButt.SetActive(true);
             startButt.SetActive(false);
-            if(player.hp <= 0)
+            if (player.hp <= 0)
             {
                 battleTxt.text = "Your opponent defeated you…";
             }
-            else if(opponent.hp <= 0)
+            else if (opponent.hp <= 0)
             {
                 battleTxt.text = "Congratulations!\r\nYou bested your opponent and escaped!";
             }
         }
         else
         {
-            return;
+            phase = battlePhase.choosePhase;
+            battleTextUI.gameObject.SetActive(false);
+            battleButtons.gameObject.SetActive(true);
         }
-    }
-
-    public void StartChoosePhase()
-    {
-        phase = battlePhase.choosePhase;
-        battleTextUI.gameObject.SetActive(false);
-        battleButtons.gameObject.SetActive(true);
     }
 
     public void DamageCalc(Monster monA, Monster monB)

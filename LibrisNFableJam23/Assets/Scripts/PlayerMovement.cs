@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        canMove = true;
+        mySprite = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -61,26 +63,6 @@ public class PlayerMovement : MonoBehaviour
         {
             movement = Vector2.zero;
             return;
-        }
-        if(Input.GetAxisRaw("Vertical") > 0)
-        {
-            mySprite.sprite = walkSprites[0];
-            mySprite.flipX = false;
-        }
-        if (Input.GetAxisRaw("Vertical") < 0)
-        {
-            mySprite.sprite = walkSprites[1];
-            mySprite.flipX = false;
-        }
-        if (Input.GetAxisRaw("Horizontal") > 0)
-        {
-            mySprite.sprite = walkSprites[2];
-            mySprite.flipX = true;
-        }
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            mySprite.sprite = walkSprites[2];
-            mySprite.flipX = false;
         }
         /*if (movement.y > 0)
         {
@@ -110,6 +92,26 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            mySprite.sprite = walkSprites[0];
+            print("wup");
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            mySprite.sprite = walkSprites[1];
+            print("sdo");
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            mySprite.sprite = walkSprites[2];
+            print("ale");
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            mySprite.sprite = walkSprites[3];
+            print("dri");
+        }
         /*
         //go up
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)){
