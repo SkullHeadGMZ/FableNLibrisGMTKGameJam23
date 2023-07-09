@@ -9,12 +9,19 @@ public class BattleTrigger : MonoBehaviour
     public LookDirection looking;
     public Animator anim;
     RaycastHit2D hit;
+    public Sprite[] owSprites;
+    SpriteRenderer mySprite;
     //public int raycDist;
     // Start is called before the first frame update
     void Start()
     {
         battleMan = GameObject.FindGameObjectWithTag("BattleManager").GetComponent<BattleManager>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        mySprite = GetComponentInChildren<SpriteRenderer>();
+        if (looking == LookDirection.Up)
+        {
+            mySprite.sprite = owSprites[0];
+        }
     }
 
     private void FixedUpdate()
